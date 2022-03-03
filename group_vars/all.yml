@@ -1,0 +1,8 @@
+---
+extra_packages:
+  - bat
+  - fzf
+  - ripgrep
+  - tmux
+  - zsh
+  - neovim

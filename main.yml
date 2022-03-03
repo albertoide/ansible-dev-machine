@@ -1,0 +1,26 @@
+- hosts: all
+  gather_facts: false
+
+  pre_tasks:
+    - name: update pacman
+      become: true
+      raw: pacman -Syu --noconfirm
+
+    - name: Install python
+      become: true
+      raw: pacman -S python --noconfirm
+
+  roles:
+    - dotfiles
+
+  tasks:
+    - name: install packages
+      become: true
+      community.general.pacman:
+        name: "{{ extra_packages }}"
+
+    - name: Change shell to zsh
+      become: true
+      ansible.builtin.user:
+        name: "{{ ansible_user }}"
+        shell: /bin/zsh
