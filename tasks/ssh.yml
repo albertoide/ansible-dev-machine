@@ -1,0 +1,17 @@
+- name: ensure .ssh directory exists.
+  file:
+    dest: "${HOME}/.ssh/"
+    mode: 0700
+    state: directory
+
+- name: install ssh key public
+  copy:
+    src: "./.ssh/id_rsa.pub"
+    dest: "${HOME}/.ssh/id_rsa.pub"
+    mode: 0644
+
+- name: install ssh key
+  copy:
+    src: "./.ssh/id_rsa"
+    dest: "${HOME}/.ssh/id_rsa"
+    mode: 0600

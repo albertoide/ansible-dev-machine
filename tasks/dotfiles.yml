@@ -1,0 +1,15 @@
+- name: install stow
+  become: true
+  community.general.pacman:
+    name:
+      - stow
+
+- name: checkout dotfiles
+  ansible.builtin.git:
+    repo: git@github.com:albertoide/dotfiles.git
+    dest: ~/src/dotfiles
+    accept_hostkey: yes
+
+- name: stow dotfiles
+  ansible.builtin.command: 
+      cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux
