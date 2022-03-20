@@ -10,13 +10,7 @@
       raw: pacman -S python --noconfirm
 
   tasks:
-    - name: install git
-      become: true
-      community.general.pacman:
-        name:
-          - git
-          - openssh
-
+    - include: tasks/packages.yml
     - include: tasks/ssh.yml
     - include: tasks/dotfiles.yml
     - include: tasks/zsh-setup.yml
