@@ -1,8 +1,7 @@
-- name: install stow
-  become: true
-  community.general.pacman:
-    name:
-      - stow
+- name: download antigen
+  get_url:
+    url: http://git.io/antigen
+    dest: ~/.antigen.zsh
 
 - name: checkout dotfiles
   ansible.builtin.git:
@@ -12,4 +11,10 @@
 
 - name: stow dotfiles
   ansible.builtin.command: 
-      cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux
+      cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux bin
+
+- name: change shell to zsh
+  become: true
+  ansible.builtin.user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: /bin/zsh

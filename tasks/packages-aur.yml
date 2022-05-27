@@ -1,0 +1,9 @@
+- name: install yai
+  kewlfft.aur.aur:
+    name: yay
+
+- name: install aur packages
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - visual-studio-code-bin

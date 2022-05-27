@@ -1,4 +1,5 @@
-- hosts: all
+# - hosts: all
+- hosts: localhost
   gather_facts: false
   pre_tasks:
     - name: update pacman
@@ -13,4 +14,4 @@
     - include: tasks/packages.yml
     - include: tasks/ssh.yml
     - include: tasks/dotfiles.yml
-    - include: tasks/zsh-setup.yml
+    # - include: tasks/packages-aur.yml
