@@ -15,3 +15,5 @@
     - include: tasks/ssh.yml
     - include: tasks/dotfiles.yml
     - include: tasks/packages-aur.yml
+    - include: tasks/rust.yml
+    - include: tasks/nvm.yml

@@ -3,6 +3,7 @@
   community.general.pacman:
     name:
       - git
+      - tig
       - base-devel
       - openssh
       - fzf
