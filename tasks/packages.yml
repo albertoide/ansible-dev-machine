@@ -2,6 +2,7 @@
   become: true
   community.general.pacman:
     name:
+      - zsh
       - git
       - tig
       - base-devel
