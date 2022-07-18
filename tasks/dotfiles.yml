@@ -11,7 +11,7 @@
 
 - name: stow dotfiles
   ansible.builtin.command: 
-      cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux bin
+      cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux bin alacritty qtile
 
 - name: change shell to zsh
   become: true
