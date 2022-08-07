@@ -6,7 +6,7 @@
 - name: checkout dotfiles
   ansible.builtin.git:
     repo: git@github.com:albertoide/dotfiles.git
-    dest: ~/src/dotfiles
+    dest: ~/src/github.com/albertoide/dotfiles
     accept_hostkey: yes
 
 - name: stow dotfiles
