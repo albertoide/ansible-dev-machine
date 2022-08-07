@@ -1,19 +1,23 @@
 - name: download antigen
+  tags: dotfiles
   get_url:
     url: http://git.io/antigen
     dest: ~/.antigen.zsh
 
 - name: checkout dotfiles
+  tags: dotfiles
   ansible.builtin.git:
     repo: git@github.com:albertoide/dotfiles.git
     dest: ~/src/github.com/albertoide/dotfiles
     accept_hostkey: yes
 
 - name: stow dotfiles
+  tags: dotfiles
   ansible.builtin.command: 
       cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux bin alacritty qtile
 
 - name: change shell to zsh
+  tags: dotfiles
   become: true
   ansible.builtin.user:
     name: "{{ lookup('env', 'USER') }}"
