@@ -14,7 +14,7 @@
 - name: stow dotfiles
   tags: dotfiles
   ansible.builtin.command: 
-      cmd: stow -t ${HOME} -d ${HOME}/src/dotfiles -S zsh tmux bin alacritty qtile
+      cmd: stow -t ${HOME} -d ${HOME}/src/github.com/albertoide/dotfiles -S zsh tmux bin alacritty qtile
 
 - name: change shell to zsh
   tags: dotfiles
